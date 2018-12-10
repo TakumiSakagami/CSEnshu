@@ -75,6 +75,7 @@
     <Compile Include="AddStocks.Designer.cs">
       <DependentUpon>AddStocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageHolder.cs" />
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
