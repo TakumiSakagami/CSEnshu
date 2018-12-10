@@ -1,6 +1,6 @@
 ﻿namespace CSEnshu
 {
-    partial class Form3
+    partial class Order
     {
         /// <summary>
         /// Required designer variable.

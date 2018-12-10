@@ -1,6 +1,6 @@
 ﻿namespace CSEnshu
 {
-    partial class Form2
+    partial class AddStocks
     {
         /// <summary>
         /// Required designer variable.

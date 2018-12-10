@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CSEnshu
 {
-    public partial class Form2 : Form
+    public partial class AddStocks : Form
     {
-        public Form2()
+        public AddStocks()
         {
             InitializeComponent();
         }
