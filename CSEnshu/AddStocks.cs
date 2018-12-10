@@ -17,8 +17,24 @@ namespace CSEnshu
             InitializeComponent();
         }
 
+        private ItemsDto item;
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            //商品名、現在庫の表示
+            itemName.Text = itemName;
+            currentStock.Text = stock;
+
+        }
+
         private void addExecuteButton_Click(object sender, EventArgs e)
         {
+
+            //DB
+            DBAccess dBAccess = new DBAccess();
+
+
+            StocksDao stocksDao = new StocksDao();
 
         }
 
@@ -27,9 +43,5 @@ namespace CSEnshu
 
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

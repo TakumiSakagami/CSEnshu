@@ -15,12 +15,12 @@ public class StocksDao
         command.Connection = connection;
 
         command.CommandText = $"UPDATE StocksTable" +
-            $" SET Stocks = Stocks + N'@inputStocks'" +
-            $" WHERE ItemId = N'@itemId'";
+            $" SET stocks = stocks + N'@inputStocks'" +
+            $" WHERE itemId = N'@itemId'";
 
         command.Connection = connection;
         //クエリ実行
-        int num = command.ExecuteNonquery();
+        int num = command.ExecuteNonQuery();
 
     }
 
@@ -38,12 +38,12 @@ public class StocksDao
         command.Connection = connection;
 
         command.CommandText = $"UPDATE StocksTable" +
-            $" SET Stocks = Stocks - N'@quantity'" +
-            $" WHERE ItemId = N'@itemId'";
+            $" SET stocks = stocks - N'@quantity'" +
+            $" WHERE itemId = N'@itemId'";
 
         command.Connection = connection;
         //クエリ実行
-        int num=command.ExecuteNonquery();
+        int num=command.ExecuteNonQuery();
 
 
 
