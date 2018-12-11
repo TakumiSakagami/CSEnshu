@@ -26,12 +26,13 @@ namespace CSEnshu
 
 
             //パラメータ設定
-            command.Parameters.Add("@itemName", SqlDbType.NVarChar, 50);
-            command.Parameters["@itemName"].Value = name;
+            command.Parameters.Add("@customerName", SqlDbType.NVarChar, 50);
+            command.Parameters["@customerName"].Value = "%"+name+"%";
+
 
             command.CommandText = $"SELECT * FROM Customers " +
-                                  $"WHERE customerName = @customerName " +
-                                  $"AND itemName LIKE (N'%{name}%') ";
+                                  $"WHERE firstName LIKE @customerName " +
+                                  $"AND lastName LIKE @customerName";
 
 
 
