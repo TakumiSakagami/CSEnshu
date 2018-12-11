@@ -19,6 +19,8 @@ namespace CSEnshu
 
            
             SqlCommand command = new SqlCommand();
+            
+                
 
 
 
@@ -27,11 +29,12 @@ namespace CSEnshu
             command.Parameters["@itemName"].Value = searchItemName;
 
             command.CommandText = $"SELECT * FROM Items " +
-                                  $"WHERE itemName = @itemName " +
-                                  $"AND itemName LIKE (N'%{searchItemName}%') ";
+                                  $"INNER JOIN Stocks ON Items.itemId = Stocks.itemId " +
+                                  $"WHERE itemName LIKE N'%@itemName%' ";
 
-
+            
             command.Connection = access.Connection;
+           
 
             //クエリの実行
             SqlDataReader reader;
