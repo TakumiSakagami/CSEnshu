@@ -43,7 +43,7 @@ namespace CSEnshu
             foreach (var a in customerDao.SearchCustomerList(customerSearchBox.Text))
             {
                 //customerBoxに表示させる.
-                customerBox.Items.Add($"顧客ID:{a.CustomerId} 名前:{a.LastName} {a.FirstName}");
+                customerBox.Items.Add($"{a.CustomerId}:{a.LastName} 名前:{a.FirstName}");
             }
 
         }
@@ -73,8 +73,7 @@ namespace CSEnshu
             errorMessage.Text = MessageHolder.PM1;
             orderQuantity = Convert.ToInt32(orderBox.Text);
 
-            logger.
-
+           // logger.
         }
 
         //キャンセルボタンを押したらメイン（商品選択画面）に遷移する.
