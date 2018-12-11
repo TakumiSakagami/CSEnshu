@@ -13,8 +13,9 @@ namespace CSEnshu
     public partial class Main : Form
     {
 
-        public static Main MainInstance { get; set;}
-        ItemsDto selectItem = new ItemsDto(0, null, 0, 0);
+        public static Main MainInstance { get; set; }
+        List<ItemsDto> itemsList = new List<ItemsDto>();
+        ItemsDto item;
 
         public Main()
         {
@@ -24,15 +25,15 @@ namespace CSEnshu
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void orderButton_Click(object sender, EventArgs e)
         {
             //注文を押したとき
-            Order order = new Order();
-            order.ShowDialog();
+            Order order = new Order(item);
+           
 
             //OKで返ってきたら
             if (order.ShowDialog(this) == DialogResult.OK)
@@ -40,15 +41,17 @@ namespace CSEnshu
                 resultText.Visible = true;
                 resultText.Text = MessageHolder.PM1;
             }
-           
+
+            order.ShowDialog();
+
 
         }
 
         private void addStockButton_Click(object sender, EventArgs e)
         {
             //在庫追加を押したとき
-            AddStocks addStocks = new AddStocks();
-            addStocks.ShowDialog();
+            AddStocks addStocks = new AddStocks(item);
+            
 
             //OKで返ってきたら
             if (addStocks.ShowDialog(this) == DialogResult.OK)
@@ -56,15 +59,18 @@ namespace CSEnshu
                 resultText.Visible = true;
                 resultText.Text = MessageHolder.PM2;
             }
-           
-           
-            
+
+            addStocks.ShowDialog();
         }
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //selectItem = searchResult.SelectedItem.ToString
-                
+            //選択されたインデックス
+            int num = searchResult.SelectedIndex;
+
+            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
+               itemsList[num].Price, itemsList[num].Stock);
+
 
         }
 
@@ -77,19 +83,19 @@ namespace CSEnshu
         {
 
         }
-        
+
         private void searchItems(string searhItemName)
         {
-            
+
             ItemsDao itemsDao = new ItemsDao();
-            List<ItemsDto> itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
+            itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
 
             //検索する
             for (int i = 0; i < itemsList.Count; i++)
             {
+                //リストに追加
                 searchResult.Items.Add(itemsList[i].ItemName + ":" + itemsList[i].Price + ":" + itemsList[i].Stock);
             }
-        
 
         }
 

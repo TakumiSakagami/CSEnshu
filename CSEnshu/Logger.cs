@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Logger
+namespace CSEnshu
 {
-	public CreateLog()
-	{
-	}
+    class Logger
+    {
+
+        //log 作成メソッド
+        public void WriteLine(List<OrderDto> orderList)
+        {
+
+        }
+
+    }
 }

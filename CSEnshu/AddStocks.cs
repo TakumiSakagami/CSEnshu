@@ -5,34 +5,25 @@ namespace CSEnshu
 {
     public partial class AddStocks : Form
     {
-        public AddStocks()
-        {
-            InitializeComponent();
-        }
-
-        //mainform instance 格納しておくフィールド
-        private Main mainInstance;
-
         //item
         private ItemsDto item;
 
-        //入力された追加在庫数
-        private string inputStock;
+        public AddStocks(ItemsDto item)
+        {
+            //初期化
+            InitializeComponent();
 
+            this.item = item;
+        }
+        
+        //int 追加在庫数
+        private int inputStock;
+        
         //dao実行結果
         int result = 0;
-
-
-
+        
         private void Form2_Load(object sender, EventArgs e)
         {
-            //mainformのインスタンスを mainInstanceに代入
-            //this.mainInstance = new Main();
-
-            //mainformで入力されたitem ことちゃん！！！
-            this.item = mainInstance.item;
-
-
             //商品名、現在庫の表示、ことちゃんと！
 
             itemName.Text = Convert.ToString(item.itemName);
@@ -42,23 +33,40 @@ namespace CSEnshu
 
         private void addExecuteButton_Click(object sender, EventArgs e)
         {
-            //追加在庫数の取得
-            //inputStock = Convert.ToInt32(addStockBox.Text);
             
             //vaidate
             Validater validater = new Validater();
 
-            validater.IsNull();
+            if (validater.IsNull(addStockBox.Text))
+            {
+                //isnull true nullのとき
+                errorMessage.Text = MessageHolder.EM1;
+            }
 
+            if (validater.IsNum(addStockBox.Text) == -1)
+            {
+                //マイナスのときは正の整数で～のEM2表示
+                errorMessage.Text = MessageHolder.EM2;
+                
+            }
+            else if(validater.IsNum(addStockBox.Text) == 0)
+            {
+                //format error  半角数字で～のエラメ
+                errorMessage.Text = MessageHolder.EM1;
 
-            //DBAccess
-            DBAccess dBAccess = new DBAccess();
+            }
+            else
+            {
+                //isnum で数字返却された時は int inputStockに代入
+                inputStock = validater.IsNum(addStockBox.Text);
+            }
 
+            
             //stockdao
             StocksDao stocksDao = new StocksDao();
 
             //addstock()実行
-            result =  stocksDao.AddStocks(item.ItemId, inputStock);
+            result =  stocksDao.AddStocks(item.itemId, inputStock);
 
             //更新できた！メインに戻る
             if(result == 1)
@@ -73,7 +81,7 @@ namespace CSEnshu
         private void addCancelButton_Click(object sender, EventArgs e)
         {
 
-
+            this.Close();
         }
 
         private void addStockBox_TextChanged(object sender, EventArgs e)
