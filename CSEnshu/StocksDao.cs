@@ -1,51 +1,64 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class StocksDao
+namespace CSEnshu
 {
-	public int AddStocks(int itemId,int inputStock)
-	{
-        SqlCommand command = new SqlCommand();
-
-        command.Parameters.Add("@inputStocks", SqlDbType.int32);
-        command.Parameters.Add("@itemId", SqlDbType.int32);
-
-        command.Parameters["@inputStocks"].Value = addStockBox.Text;
-        command.Parameters["@itemId"].Value = itemId;
-        
-        command.Connection = connection;
-
-        command.CommandText = $"UPDATE StocksTable" +
-            $" SET stocks = stocks + N'@inputStocks'" +
-            $" WHERE itemId = N'@itemId'";
-
-        command.Connection = connection;
-        //クエリ実行
-        int num = command.ExecuteNonQuery();
-
-    }
-
-    public int DecrementStocks(int itemId,int quantity)
+    class StocksDao
     {
+        public int AddStocks(int itemId, int inputStock)
+        {
+            SqlCommand command = new SqlCommand();
 
-        SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@inputStocks", SqlDbType.Int);
+            command.Parameters.Add("@itemId", SqlDbType.Int);
 
-        command.Parameters.Add("@quantity", SqlDbType.int32);
-        command.Parameters.Add("@itemId", SqlDbType.int32);
+            command.Parameters["@inputStocks"].Value = inputStock;
+            command.Parameters["@itemId"].Value = itemId;
 
-        command.Parameters["@quantity"].Value = orderBox.Text;
-        command.Parameters["@itemId"].Value = itemId; 
-        
-        command.Connection = connection;
+            DBAccess dBAccess = new DBAccess();
+            
+            command.Connection = connection;
 
-        command.CommandText = $"UPDATE StocksTable" +
-            $" SET stocks = stocks - N'@quantity'" +
-            $" WHERE itemId = N'@itemId'";
+            command.CommandText = $"UPDATE StocksTable" +
+                $" SET stocks = stocks + N'@inputStocks'" +
+                $" WHERE itemId = N'@itemId'";
 
-        command.Connection = connection;
-        //クエリ実行
-        int num=command.ExecuteNonQuery();
+            command.Connection = connection;
+            //クエリ実行
+            int num = command.ExecuteNonQuery();
+
+        }
+
+        public int DecrementStocks(int itemId, int quantity)
+        {
+
+            SqlCommand command = new SqlCommand();
+
+            command.Parameters.Add("@quantity", SqlDbType.Int);
+            command.Parameters.Add("@itemId", SqlDbType.Int);
+
+            command.Parameters["@quantity"].Value = quantity;
+            command.Parameters["@itemId"].Value = itemId;
+
+            DBAccess dBAccess = new DBAccess();
+
+            command.Connection = connection;
+
+            command.CommandText = $"UPDATE StocksTable" +
+                $" SET stocks = stocks - N'@quantity'" +
+                $" WHERE itemId = N'@itemId'";
+
+            command.Connection = connection;
+            //クエリ実行
+            int num = command.ExecuteNonQuery();
 
 
 
+        }
     }
 }

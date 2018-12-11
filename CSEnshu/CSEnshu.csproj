@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerDto.cs" />
-    <Compile Include="ItemsDao.cs" />
+    <Compile Include="DBAccess.cs" />
     <Compile Include="ItemsDto.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -86,6 +87,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockDto.cs" />
+    <Compile Include="StocksDao.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
