@@ -12,6 +12,8 @@ namespace CSEnshu
 {
     public partial class Order : Form
     {
+
+        CustomerDao customerDao = new CustomerDao();
         public Order()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace CSEnshu
         //顧客検索ボタンを押下.
         private void customerSearchButton_Click(object sender, EventArgs e)
         {
-
+            customerDao.SearchCustomerList(customerSearchBox.Text);
         }
 
         private void orderExecuteButton_Click(object sender, EventArgs e)
