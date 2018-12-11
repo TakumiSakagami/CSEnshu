@@ -1,5 +1,6 @@
 ﻿using CSEnshu;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,6 +11,9 @@ public class OrderDao1
     private DateTime date = DateTime.Now;
     Order order = null;
     SqlCommand command = new SqlCommand();
+    SqlConnection connection = new SqlConnection();
+    SqlDataReader reader;
+    DBAccess access = new DBAccess();
 
     //orderTableにitemId,CustomersId,quantityを追加していく.
     public int OrderRecord(int itemId, int customerId, int quantity)
@@ -44,5 +48,38 @@ public class OrderDao1
         int num = command.ExecuteNonQuery();
 
         return num;
+    }
+
+    public List<OrderDto> getOrder()
+    {
+        List<OrderDto> list = new List<OrderDto>();
+
+        command.CommandText = "SELECT * FROM Orders;";
+
+        access.DbConnect();
+
+        command.Connection = connection;
+        reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+
+            String orderIdStr = reader["orderId"].ToString();
+            String itemIdStr = reader["itemId"].ToString();
+            String customerIdStr = reader["cutomerId"].ToString();
+            String quantityStr = reader["quantity"].ToString();
+            DateTime date = (DateTime)reader["date"];
+
+            int orderId = Convert.ToInt32(orderIdStr);
+            int itemId = Convert.ToInt32(itemIdStr);
+            int customerId = Convert.ToInt32(customerIdStr);
+            int quantity = Convert.ToInt32(quantityStr);
+            list.Add(new OrderDto(orderId, itemId, customerId, quantity, date));
+        }
+
+        access.DbClose();
+
+        return list;
+
     }
 }

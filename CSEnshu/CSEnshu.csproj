@@ -87,6 +87,7 @@
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
     <Compile Include="OrderDao.cs" />
+    <Compile Include="OrderDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockDto.cs" />
