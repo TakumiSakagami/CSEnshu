@@ -17,9 +17,9 @@ namespace CSEnshu
         {
             access.DbConnect();
 
-            Main main = null;
+           
             SqlCommand command = new SqlCommand();
-            SqlConnection connection = new SqlConnection();
+           
 
 
             //パラメータ設定
@@ -32,7 +32,6 @@ namespace CSEnshu
 
 
 
-            command.Connection = connection;
             //クエリの実行
             SqlDataReader reader;
 
@@ -45,7 +44,7 @@ namespace CSEnshu
                 string itemIdStr = reader["itemId"].ToString();
                 string itemName = reader["itemName"].ToString();
                 string priceStr = reader["price"].ToString();
-                string stockStr = reader["price"].ToString();
+                string stockStr = reader["stock"].ToString();
 
                 int itemId = Convert.ToInt32(itemIdStr);
                 int price = Convert.ToInt32(priceStr);

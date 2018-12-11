@@ -14,7 +14,8 @@ namespace CSEnshu
     {
 
         public static Main MainInstance { get; set;}
-        
+        ItemsDto selectItem = new ItemsDto(0, null, 0, 0);
+
         public Main()
         {
             InitializeComponent();
@@ -30,30 +31,40 @@ namespace CSEnshu
         private void orderButton_Click(object sender, EventArgs e)
         {
             //注文を押したとき
-            AddStocks addStocks = new AddStocks();
-            addStocks.ShowDialog();
-            Validater validater = new Validater();
+            Order order = new Order();
+            order.ShowDialog();
 
-            if (addStocks.ShowDialog(this) == DialogResult.OK)
+            //OKで返ってきたら
+            if (order.ShowDialog(this) == DialogResult.OK)
             {
-                resultText.Text = 
+                resultText.Visible = true;
+                resultText.Text = MessageHolder.PM1;
             }
+           
 
         }
 
         private void addStockButton_Click(object sender, EventArgs e)
         {
             //在庫追加を押したとき
-            Order order = new Order();
-            order.ShowDialog();
+            AddStocks addStocks = new AddStocks();
+            addStocks.ShowDialog();
 
-            if ()
-
+            //OKで返ってきたら
+            if (addStocks.ShowDialog(this) == DialogResult.OK)
+            {
+                resultText.Visible = true;
+                resultText.Text = MessageHolder.PM2;
+            }
+           
+           
             
         }
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //selectItem = searchResult.SelectedItem.ToString
+                
 
         }
 
