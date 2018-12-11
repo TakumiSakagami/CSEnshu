@@ -24,18 +24,15 @@ namespace CSEnshu
 
 
 
-
-
-
-            command.CommandText = $"SELECT Items.itemId,Items.itemName,Items.Price,Stocks.stock " +
-                                  $"FROM Items,Stocks " +
-                                  $"WHERE Items.itemId = Stocks.itemId " +
-                                  $"AND Items.itemName LIKE N'%@itemName%'; ";
-           
-
             //パラメータ設定
             command.Parameters.Add("@itemName", SqlDbType.NVarChar, 50);
-            command.Parameters["@itemName"].Value = searchItemName;
+            command.Parameters["@itemName"].Value = "%" + searchItemName + "%";
+
+
+            command.CommandText = $"SELECT * FROM Items " +
+                                  $"INNER JOIN Stocks ON Items.itemId = Stocks.itemId " +
+                                  $"WHERE itemName LIKE @itemName ";
+
 
             command.Connection = access.Connection;
            
