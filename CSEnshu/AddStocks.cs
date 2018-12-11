@@ -17,10 +17,12 @@ namespace CSEnshu
         private ItemsDto item;
 
         //入力された追加在庫数
-        private int inputStock = 0;
+        private string inputStock;
 
         //dao実行結果
         int result = 0;
+
+
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -41,7 +43,13 @@ namespace CSEnshu
         private void addExecuteButton_Click(object sender, EventArgs e)
         {
             //追加在庫数の取得
-            inputStock = Convert.ToInt32(addStockBox.Text);
+            //inputStock = Convert.ToInt32(addStockBox.Text);
+            
+            //vaidate
+            Validater validater = new Validater();
+
+            validater.IsNull();
+
 
             //DBAccess
             DBAccess dBAccess = new DBAccess();
