@@ -20,6 +20,7 @@ namespace CSEnshu
         int orderQuantity;
         CustomerDao customerDao = new CustomerDao();
         Logger logger = new Logger();
+        List<OrderDto> orderList;
 
         private ItemsDto item;
 
@@ -73,7 +74,7 @@ namespace CSEnshu
             errorMessage.Text = MessageHolder.PM1;
             orderQuantity = Convert.ToInt32(orderBox.Text);
 
-           // logger.
+            logger.WriteLine(orderList);
         }
 
         //キャンセルボタンを押したらメイン（商品選択画面）に遷移する.
