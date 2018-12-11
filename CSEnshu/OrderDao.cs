@@ -8,7 +8,7 @@ public class OrderDao1
 {
     //現在時刻取得.
     private DateTime date = DateTime.Now;
-    Order order = new Order();
+    Order order = null;
     SqlCommand command = new SqlCommand();
 
     //orderTableにitemId,CustomersId,quantityを追加していく.
@@ -31,7 +31,7 @@ public class OrderDao1
         //注文数量(quantity)のパラメータ設定.
         //注文数のorderBoxから取得する.
         command.Parameters.Add("@quantity", SqlDbType.Int);
-        command.Parameters["@quantity"].Value = Order.orderBox.Text;
+        command.Parameters["@quantity"].Value = order.orderBox.Text;
 
         //注文日(date)のパラメータ設定.
         //OrdersDaoクラスのフィールドから取得.

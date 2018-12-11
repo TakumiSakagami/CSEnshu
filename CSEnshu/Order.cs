@@ -51,8 +51,16 @@ namespace CSEnshu
         //顧客検索するメソッド.
         public void SearchCustomer(string searchCustomerName)
         {
-            Customer
+            //CustomerDaoのインスタンス生成//金子さんがこれからつくる.
+            CustomerDao customerDao = new CustomerDao();
+            List<Customer> customerList = new List<Customer>();
+
+
         }
-        
-}
+
+        private bool Validate(int )
+        {
+
+        }
+    }
 }
