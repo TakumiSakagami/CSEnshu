@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 namespace CSEnshu
 {
     class StocksDao
+
     {
+
+        //DBAccess 
+        DBAccess dBAccess = new DBAccess();
+
         public int AddStocks(int itemId, int inputStock)
         {
             SqlCommand command = new SqlCommand();
@@ -24,10 +29,7 @@ namespace CSEnshu
                 $" SET stocks = stocks + N'@inputStocks'" +
                 $" WHERE itemId = N'@itemId'";
 
-
-            //DBAccess 
-            DBAccess dBAccess = new DBAccess();
-
+            
             //connect
             dBAccess.DbConnect();
 
@@ -56,9 +58,7 @@ namespace CSEnshu
             command.CommandText = $"UPDATE StocksTable" +
                 $" SET stocks = stocks - N'@quantity'" +
                 $" WHERE itemId = N'@itemId'";
-
-            //DBAccess
-            DBAccess dBAccess = new DBAccess();
+            
 
             //connection
             dBAccess.DbConnect();
