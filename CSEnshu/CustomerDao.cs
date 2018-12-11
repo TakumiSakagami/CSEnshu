@@ -23,7 +23,6 @@ namespace CSEnshu
             access.DbConnect();
 
             SqlCommand command = new SqlCommand();
-            SqlConnection connection = new SqlConnection();
 
 
             //パラメータ設定
@@ -36,7 +35,7 @@ namespace CSEnshu
 
 
 
-            command.Connection = connection;
+            command.Connection = access.Connection;
             //クエリの実行
             SqlDataReader reader;
 

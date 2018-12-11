@@ -33,7 +33,10 @@ namespace CSEnshu
             //connect
             dBAccess.DbConnect();
 
-            
+            command.Connection = dBAccess.Connection;
+
+
+
             //クエリ実行
             int num = command.ExecuteNonQuery();
 
@@ -62,6 +65,9 @@ namespace CSEnshu
 
             //connection
             dBAccess.DbConnect();
+
+            command.Connection = dBAccess.Connection;
+
 
             //クエリ実行
             int num = command.ExecuteNonQuery();

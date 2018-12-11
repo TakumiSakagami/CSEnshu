@@ -18,6 +18,7 @@ public class OrderDao1
     //orderTableにitemId,CustomersId,quantityを追加していく.
     public int OrderRecord(int itemId, int customerId, int quantity)
     {
+        access.DbConnect();
 
         command.CommandText = $"INSERT INTO Orders(itemId,customerId,quantity,date)" +
                               $"VALUES(N'@itemId',N'@customerId',N'@quantity',N'@date')";
@@ -43,9 +44,10 @@ public class OrderDao1
         command.Parameters["@date"].Value = date;
 
         //Connection情報の登録
-        command.Connection = connection;
+        command.Connection = access.Connection;
         //クエリの実行
         int num = command.ExecuteNonQuery();
+        access.DbClose();
 
         return num;
     }
@@ -58,7 +60,7 @@ public class OrderDao1
 
         access.DbConnect();
 
-        command.Connection = connection;
+        command.Connection = access.Connection;
         reader = command.ExecuteReader();
 
         while (reader.Read())
