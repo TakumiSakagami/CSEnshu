@@ -45,6 +45,7 @@
             this.resultText.TabIndex = 0;
             this.resultText.Text = "label1";
             this.resultText.Visible = false;
+            this.resultText.Click += new System.EventHandler(this.resultText_Click);
             // 
             // searchResult
             // 

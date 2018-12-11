@@ -13,7 +13,7 @@ namespace CSEnshu
 
         DBAccess access = new DBAccess();
 
-        public List<ItemsDto> SearchItemsList()
+        public List<ItemsDto> SearchItemsList(string searchItemName)
         {
             access.DbClose();
 
@@ -24,11 +24,11 @@ namespace CSEnshu
 
             //パラメータ設定
             command.Parameters.Add("@itemName", SqlDbType.NVarChar, 50);
-            command.Parameters["@itemName"].Value = main.itemSearchBox.Text;
+            command.Parameters["@itemName"].Value = searchItemName;
 
             command.CommandText = $"SELECT * FROM Items " +
                                   $"WHERE itemName = @itemName " +
-                                  $"AND itemName LIKE (N'%{main.itemSearchBox}%') ";
+                                  $"AND itemName LIKE (N'%{searchItemName}%') ";
 
 
 
