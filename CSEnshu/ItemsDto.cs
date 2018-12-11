@@ -12,11 +12,15 @@ namespace CSEnshu
         public int ItemId { get; set; }
         public String ItemName { get; set; }
         public int Price { get; set; }
-        public ItemsDto(int itemId, String ItemName, int price)
+        public int Stock { get; set; }
+
+
+        public ItemsDto(int itemId, String itemName, int price,int stock)
         {
             this.ItemId = itemId;
-            this.ItemName = ItemName;
+            this.ItemName = itemName;
             this.Price = price;
+            this.Stock = stock;
         }
     }
 }

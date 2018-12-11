@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSEnshu
@@ -22,15 +15,15 @@ namespace CSEnshu
         private void Form2_Load(object sender, EventArgs e)
         {
             //商品名、現在庫の表示
-            itemName.Text = itemName;
-            currentStock.Text = stock;
+            itemName.Text = Convert.ToString(itemName);
+            currentStock.Text = Convert.ToString(stock)
 
         }
 
         private void addExecuteButton_Click(object sender, EventArgs e)
         {
 
-            //DB
+            //DBAccess
             DBAccess dBAccess = new DBAccess();
 
 
