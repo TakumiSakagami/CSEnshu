@@ -26,7 +26,7 @@ namespace CSEnshu.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.150\\SQLEXPRESS;Initial Catalog=master;Integrated Security" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.149\\SQLEXPRESS;Initial Catalog=master;Integrated Security" +
             "=True")]
         public string CSEnshu {
             get {
