@@ -20,18 +20,24 @@ namespace CSEnshu
             command.Parameters["@inputStocks"].Value = inputStock;
             command.Parameters["@itemId"].Value = itemId;
 
-            DBAccess dBAccess = new DBAccess();
-            
-            command.Connection = connection;
-
             command.CommandText = $"UPDATE StocksTable" +
                 $" SET stocks = stocks + N'@inputStocks'" +
                 $" WHERE itemId = N'@itemId'";
 
-            command.Connection = connection;
+
+            //DBAccess 
+            DBAccess dBAccess = new DBAccess();
+            //connect
+            dBAccess.DbConnect();
+
+            
             //クエリ実行
             int num = command.ExecuteNonQuery();
 
+            //close
+            dBAccess.DbClose();
+
+            return num;
         }
 
         public int DecrementStocks(int itemId, int quantity)
@@ -44,19 +50,26 @@ namespace CSEnshu
 
             command.Parameters["@quantity"].Value = quantity;
             command.Parameters["@itemId"].Value = itemId;
-
-            DBAccess dBAccess = new DBAccess();
-
-            command.Connection = connection;
+            
 
             command.CommandText = $"UPDATE StocksTable" +
                 $" SET stocks = stocks - N'@quantity'" +
                 $" WHERE itemId = N'@itemId'";
 
-            command.Connection = connection;
+            //DBAccess
+            DBAccess dBAccess = new DBAccess();
+
+            //connection
+            dBAccess.DbConnect();
+
             //クエリ実行
             int num = command.ExecuteNonQuery();
 
+            //close
+            dBAccess.DbClose();
+
+            return num;
+            
 
 
         }
