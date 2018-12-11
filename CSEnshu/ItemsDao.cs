@@ -11,9 +11,13 @@ namespace CSEnshu
     public class ItemsDao
     {
 
+        DBAccess access = new DBAccess();
+
         public List<ItemsDto> SearchItemsList()
         {
-            Main main;
+            access.DbClose();
+
+            Main main = null;
             SqlCommand command = new SqlCommand();
             SqlConnection connection = new SqlConnection();
 
@@ -23,8 +27,8 @@ namespace CSEnshu
             command.Parameters["@itemName"].Value = main.itemSearchBox.Text;
 
             command.CommandText = $"SELECT * FROM Items " +
-                                  $"set itemName = @itemName " +
-                                  $"WHERE itemName LIKE (N'%{main.itemSearchBox}%') ";
+                                  $"WHERE itemName = @itemName " +
+                                  $"AND itemName LIKE (N'%{main.itemSearchBox}%') ";
 
 
 
@@ -49,6 +53,8 @@ namespace CSEnshu
                 ItemsDto itemsDto = new ItemsDto(itemId, itemName, price, stock);
                 list.Add(itemsDto);
             }
+
+            access.DbClose();
 
             return list;
 

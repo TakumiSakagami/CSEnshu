@@ -16,7 +16,7 @@ namespace CSEnshu
         /// <summary>
         /// DBにアクセス
         /// </summary>
-        private void DbConnect()
+        public void DbConnect()
         {
 
             connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DbEnshu.Properties.Settings.SQLConnection"].ConnectionString;
@@ -26,7 +26,7 @@ namespace CSEnshu
         /// <summary>
         /// DBをクローズ
         /// </summary>
-        private void DbClose()
+        public void DbClose()
         {
             connection.Close();
         }
