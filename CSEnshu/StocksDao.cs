@@ -25,7 +25,7 @@ namespace CSEnshu
             command.Parameters["@inputStocks"].Value = inputStock;
             command.Parameters["@itemId"].Value = itemId;
 
-            command.CommandText = $"UPDATE StocksTable" +
+            command.CommandText = $"UPDATE Stocks" +
                 $" SET stocks = stocks + N'@inputStocks'" +
                 $" WHERE itemId = N'@itemId'";
 
