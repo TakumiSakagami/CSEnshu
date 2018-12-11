@@ -19,7 +19,7 @@ namespace CSEnshu
         public void DbConnect()
         {
 
-            connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DbEnshu.Properties.Settings.SQLConnection"].ConnectionString;
+            connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CSEnshu.Properties.Settings.CSEnshu"].ConnectionString;
 
             connection.Open();
         }
