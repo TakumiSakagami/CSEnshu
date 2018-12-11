@@ -12,13 +12,17 @@ namespace CSEnshu
 {
     public partial class Main : Form
     {
+      
+        public static Main MainInstance { get; set;}
         public Main()
         {
             InitializeComponent();
+            Main.MainInstance = this;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            
 
         }
 
@@ -38,6 +42,16 @@ namespace CSEnshu
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemSearchBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private List<ItemsDto> searchItems(string searhItemName)
         {
 
         }

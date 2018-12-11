@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace CSEnshu
 {
-    public class ItemsDao
+    public class ItemsDao3
     {
 
         public List<ItemsDto> SearchItemsList()
         {
-            Main main;
+
             SqlCommand command = new SqlCommand();
             SqlConnection connection = new SqlConnection();
 
 
             //パラメータ設定
             command.Parameters.Add("@itemName", SqlDbType.NVarChar, 50);
-            command.Parameters["@itemName"].Value = main.itemSearchBox.Text;
+            command.Parameters["@itemName"].Value = itemSearchBox.Text;
 
             command.CommandText = $"SELECT * FROM Items " +
                                   $"set itemName = @itemName " +
-                                  $"WHERE itemName LIKE (N'%{main.itemSearchBox}%') ";
+                                  $"WHERE itemName LIKE (N'%{itemSearchBox}%') ";
 
 
 
@@ -35,7 +35,7 @@ namespace CSEnshu
             //クエリの実行
             reader = command.ExecuteReader();
             List<ItemsDto> list = new List<ItemsDto>();
-            
+
             //値の取得
             while (reader.Read())
             {

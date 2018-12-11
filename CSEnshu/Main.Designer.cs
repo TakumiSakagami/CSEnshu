@@ -62,6 +62,7 @@
             this.itemSearchBox.Name = "itemSearchBox";
             this.itemSearchBox.Size = new System.Drawing.Size(239, 19);
             this.itemSearchBox.TabIndex = 2;
+            this.itemSearchBox.TextChanged += new System.EventHandler(this.itemSearchBox_TextChanged);
             // 
             // searchButton
             // 
@@ -93,7 +94,7 @@
             this.addStockButton.UseVisualStyleBackColor = true;
             this.addStockButton.Click += new System.EventHandler(this.addStockButton_Click);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,7 +105,7 @@
             this.Controls.Add(this.itemSearchBox);
             this.Controls.Add(this.searchResult);
             this.Controls.Add(this.resultText);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -114,12 +115,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label resultText;
-        private System.Windows.Forms.ListBox searchResult;
-        private System.Windows.Forms.TextBox itemSearchBox;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.Button orderButton;
-        private System.Windows.Forms.Button addStockButton;
+        internal System.Windows.Forms.Label resultText;
+        internal System.Windows.Forms.ListBox searchResult;
+        internal System.Windows.Forms.TextBox itemSearchBox;
+        internal System.Windows.Forms.Button searchButton;
+        internal System.Windows.Forms.Button orderButton;
+        internal System.Windows.Forms.Button addStockButton;
     }
 }
 
