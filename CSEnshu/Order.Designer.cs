@@ -36,7 +36,7 @@
             this.customerBox = new System.Windows.Forms.ListBox();
             this.customerSearchButton = new System.Windows.Forms.Button();
             this.orderExecuteButton = new System.Windows.Forms.Button();
-            this.orderCanselButton = new System.Windows.Forms.Button();
+            this.orderCancelButton = new System.Windows.Forms.Button();
             this.orderBox = new System.Windows.Forms.TextBox();
             this.errorMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -114,15 +114,15 @@
             this.orderExecuteButton.UseVisualStyleBackColor = true;
             this.orderExecuteButton.Click += new System.EventHandler(this.orderExecuteButton_Click);
             // 
-            // orderCanselButton
+            // orderCancelButton
             // 
-            this.orderCanselButton.Location = new System.Drawing.Point(277, 359);
-            this.orderCanselButton.Name = "orderCanselButton";
-            this.orderCanselButton.Size = new System.Drawing.Size(75, 23);
-            this.orderCanselButton.TabIndex = 5;
-            this.orderCanselButton.Text = "キャンセル";
-            this.orderCanselButton.UseVisualStyleBackColor = true;
-            this.orderCanselButton.Click += new System.EventHandler(this.orderCanselButton_Click);
+            this.orderCancelButton.Location = new System.Drawing.Point(277, 359);
+            this.orderCancelButton.Name = "orderCancelButton";
+            this.orderCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.orderCancelButton.TabIndex = 5;
+            this.orderCancelButton.Text = "キャンセル";
+            this.orderCancelButton.UseVisualStyleBackColor = true;
+            this.orderCancelButton.Click += new System.EventHandler(this.orderCancelButton_Click);
             // 
             // orderBox
             // 
@@ -150,7 +150,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.orderBox);
-            this.Controls.Add(this.orderCanselButton);
+            this.Controls.Add(this.orderCancelButton);
             this.Controls.Add(this.orderExecuteButton);
             this.Controls.Add(this.customerSearchButton);
             this.Controls.Add(this.customerBox);
@@ -177,7 +177,7 @@
         private System.Windows.Forms.ListBox customerBox;
         private System.Windows.Forms.Button customerSearchButton;
         private System.Windows.Forms.Button orderExecuteButton;
-        private System.Windows.Forms.Button orderCanselButton;
+        private System.Windows.Forms.Button orderCancelButton;
         private System.Windows.Forms.TextBox orderBox;
         private System.Windows.Forms.Label errorMessage;
     }

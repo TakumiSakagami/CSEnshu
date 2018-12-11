@@ -35,7 +35,7 @@ public class OrderDao1
         //注文数量(quantity)のパラメータ設定.
         //注文数のorderBoxから取得する.
         command.Parameters.Add("@quantity", SqlDbType.Int);
-        command.Parameters["@quantity"].Value = order.orderBox.Text;
+        command.Parameters["@quantity"].Value = quantity;
 
         //注文日(date)のパラメータ設定.
         //OrdersDaoクラスのフィールドから取得.

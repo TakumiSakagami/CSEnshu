@@ -69,9 +69,10 @@ namespace CSEnshu
             orderQuantity = Convert.ToInt32(orderBox.Text);
         }
 
-        private void orderCanselButton_Click(object sender, EventArgs e)
+        //キャンセルボタンを押したらメイン（商品選択画面）に繊維する.
+        private void orderCancelButton_Click(object sender, EventArgs e)
         {
-
+            Form
         }
 
         private void customerBox_SelectedIndexChanged(object sender, EventArgs e)
