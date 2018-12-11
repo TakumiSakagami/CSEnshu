@@ -13,7 +13,7 @@ namespace CSEnshu
 
         public List<ItemsDto> SearchItemsList()
         {
-            Main main;
+            Main main = null;
             SqlCommand command = new SqlCommand();
             SqlConnection connection = new SqlConnection();
 
