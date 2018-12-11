@@ -26,13 +26,14 @@ namespace CSEnshu
 
             //パラメータ設定
             command.Parameters.Add("@itemName", SqlDbType.NVarChar, 50);
-            command.Parameters["@itemName"].Value = searchItemName;
+            command.Parameters["@itemName"].Value = "%" + searchItemName + "%";
+
 
             command.CommandText = $"SELECT * FROM Items " +
                                   $"INNER JOIN Stocks ON Items.itemId = Stocks.itemId " +
-                                  $"WHERE itemName LIKE '%N@itemName%' ";
+                                  $"WHERE itemName LIKE @itemName ";
 
-            
+
             command.Connection = access.Connection;
            
 
