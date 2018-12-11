@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSEnshu
 {
-    class validater
+    class Validater
     {
         /// <summary>
         /// 個数が空文字列か調べる
