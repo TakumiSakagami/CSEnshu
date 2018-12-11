@@ -15,7 +15,7 @@ namespace CSEnshu
 
         public List<ItemsDto> SearchItemsList()
         {
-            access.DbClose();
+            access.DbConnect();
 
             Main main = null;
             SqlCommand command = new SqlCommand();
