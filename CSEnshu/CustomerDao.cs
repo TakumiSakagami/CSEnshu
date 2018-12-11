@@ -13,6 +13,11 @@ namespace CSEnshu
 
         DBAccess access = new DBAccess();
 
+        /// <summary>
+        /// 顧客テーブルから検索を行う
+        /// </summary>
+        /// <param name="name">入力された文字列</param>
+        /// <returns>検索された顧客全員</returns>
         public List<CustomerDto> SearchCustomerList(String name)
         {
             access.DbConnect();
