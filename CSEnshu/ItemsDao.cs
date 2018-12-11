@@ -30,7 +30,7 @@ namespace CSEnshu
 
             command.CommandText = $"SELECT * FROM Items " +
                                   $"INNER JOIN Stocks ON Items.itemId = Stocks.itemId " +
-                                  $"WHERE itemName LIKE N'%@itemName%' ";
+                                  $"WHERE itemName LIKE '%N@itemName%' ";
 
             
             command.Connection = access.Connection;
