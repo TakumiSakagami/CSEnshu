@@ -49,6 +49,7 @@
             this.itemName.Size = new System.Drawing.Size(41, 12);
             this.itemName.TabIndex = 0;
             this.itemName.Text = "商品名";
+            this.itemName.Click += new System.EventHandler(this.itemName_Click);
             // 
             // currentStock
             // 

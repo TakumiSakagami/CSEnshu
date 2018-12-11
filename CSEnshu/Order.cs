@@ -54,6 +54,7 @@ namespace CSEnshu
         //注文ボタン押下
         private void orderExecuteButton_Click(object sender, EventArgs e)
         {
+
             //何かしらの入力があるかどうか.
             if (validater.IsNull(orderBox.Text))
             {
@@ -97,6 +98,11 @@ namespace CSEnshu
         }
 
         private void orderBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemName_Click(object sender, EventArgs e)
         {
 
         }
