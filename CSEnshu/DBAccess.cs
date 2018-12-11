@@ -12,7 +12,7 @@ namespace CSEnshu
         //フィールドでコネクションを作成
         SqlConnection connection = new SqlConnection();
 
-
+        public SqlConnection Connection { get { return connection; } }
         /// <summary>
         /// DBにアクセス
         /// </summary>

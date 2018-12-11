@@ -19,7 +19,7 @@ namespace CSEnshu
 
            
             SqlCommand command = new SqlCommand();
-           
+
 
 
             //パラメータ設定
@@ -31,6 +31,7 @@ namespace CSEnshu
                                   $"AND itemName LIKE (N'%{searchItemName}%') ";
 
 
+            command.Connection = access.Connection;
 
             //クエリの実行
             SqlDataReader reader;
