@@ -20,9 +20,9 @@ namespace CSEnshu
         int orderQuantity;
         CustomerDao customerDao = new CustomerDao();
         Logger logger = new Logger();
-        List<OrderDto> orderList;
 
         private ItemsDto item;
+        private List<OrderDto> orderList = new List<OrderDto>();
 
 
         public Order(ItemsDto item)
