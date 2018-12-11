@@ -34,6 +34,8 @@ namespace CSEnshu
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            currentStock.Text = item.Stock.ToString();
+            itemName.Text = item.ItemName;
 
         }
 
@@ -44,7 +46,7 @@ namespace CSEnshu
             foreach (var a in customerDao.SearchCustomerList(customerSearchBox.Text))
             {
                 //customerBoxに表示させる.
-                customerBox.Items.Add($"{a.CustomerId}:{a.LastName} 名前:{a.FirstName}");
+                customerBox.Items.Add($"{a.CustomerId} 名前:{a.FirstName} {a.LastName}");
             }
 
         }
@@ -55,24 +57,30 @@ namespace CSEnshu
             //何かしらの入力があるかどうか.
             if (validater.IsNull(orderBox.Text))
             {
+                errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM1;
             }
             //数字以外が入力される.
             if (validater.IsNum(orderBox.Text) == 0)
             {
+                errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM1;
             }
             //マイナスの値が入力される.
             else if(validater.IsNum(orderBox.Text) == -1)
             {
+                errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM2;
+            }
+            else
+            {
+                orderQuantity = validater.IsNum(orderBox.Text);
             }
 
             //入力チェックが完了したら
             //①labelにPM01を表示させる
             //②注文数量の変数orderQuantityに入力値を代入
-            errorMessage.Text = MessageHolder.PM1;
-            orderQuantity = Convert.ToInt32(orderBox.Text);
+           // errorMessage.Text = MessageHolder.PM1;
 
             logger.WriteLine(orderList);
         }
