@@ -9,7 +9,7 @@ public class OrderDao1
 {
     //現在時刻取得.
     private DateTime date = DateTime.Now;
-    Order order = null;
+    //Order order = null;
     SqlCommand command = new SqlCommand();
     SqlConnection connection = new SqlConnection();
     SqlDataReader reader;
