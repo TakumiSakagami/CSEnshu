@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="CustomerDto.cs" />
     <Compile Include="DBAccess.cs" />
+    <Compile Include="ItemsDao.cs" />
     <Compile Include="ItemsDto.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

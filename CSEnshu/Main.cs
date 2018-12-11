@@ -51,8 +51,13 @@ namespace CSEnshu
 
         }
         
-        private List<ItemsDto> searchItems(string searhItemName)
+        private void searchItems(string searhItemName)
         {
+            ItemsDao itemsDao = new ItemsDao();
+            List<ItemsDto> itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
+
+         
+
 
         }
     }

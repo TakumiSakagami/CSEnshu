@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSEnshu
 {
-    class ItemsDto
+    public class ItemsDto
     {
 
         public int ItemId { get; set; }

@@ -32,7 +32,6 @@ namespace CSEnshu
             //クエリの実行
             SqlDataReader reader;
 
-            //クエリの実行
             reader = command.ExecuteReader();
             List<ItemsDto> list = new List<ItemsDto>();
             
@@ -40,12 +39,14 @@ namespace CSEnshu
             while (reader.Read())
             {
                 string itemIdStr = reader["itemId"].ToString();
-                string itemName = reader["ItemName"].ToString();
+                string itemName = reader["itemName"].ToString();
                 string priceStr = reader["price"].ToString();
+                string stockStr = reader["price"].ToString();
 
                 int itemId = Convert.ToInt32(itemIdStr);
                 int price = Convert.ToInt32(priceStr);
-                ItemsDto itemsDto = new ItemsDto(itemId, itemName, price);
+                int stock = Convert.ToInt32(stockStr);
+                ItemsDto itemsDto = new ItemsDto(itemId, itemName, price, stock);
                 list.Add(itemsDto);
             }
 
