@@ -26,8 +26,8 @@ namespace CSEnshu
         {
             //商品名、現在庫の表示、ことちゃんと！
 
-            itemName.Text = Convert.ToString(item.itemName);
-            currentStock.Text = Convert.ToString(item.stock);
+            itemName.Text = Convert.ToString(item.ItemName);
+            currentStock.Text = Convert.ToString(item.Stock);
 
         }
 
@@ -66,7 +66,7 @@ namespace CSEnshu
             StocksDao stocksDao = new StocksDao();
 
             //addstock()実行
-            result =  stocksDao.AddStocks(item.itemId, inputStock);
+            result =  stocksDao.AddStocks(item.ItemId, inputStock);
 
             //更新できた！メインに戻る
             if(result == 1)
