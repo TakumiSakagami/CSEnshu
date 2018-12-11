@@ -21,9 +21,14 @@ namespace CSEnshu
         CustomerDao customerDao = new CustomerDao();
         Logger logger = new Logger();
 
-        public Order()
+        private ItemsDto item;
+
+
+        public Order(ItemsDto item)
         {
             InitializeComponent();
+
+            this.item = item;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -69,10 +74,10 @@ namespace CSEnshu
             orderQuantity = Convert.ToInt32(orderBox.Text);
         }
 
-        //キャンセルボタンを押したらメイン（商品選択画面）に繊維する.
+        //キャンセルボタンを押したらメイン（商品選択画面）に遷移する.
         private void orderCancelButton_Click(object sender, EventArgs e)
         {
-            Form
+            this.Close();
         }
 
         private void customerBox_SelectedIndexChanged(object sender, EventArgs e)
