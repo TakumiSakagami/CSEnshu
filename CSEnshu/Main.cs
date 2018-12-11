@@ -25,7 +25,7 @@ namespace CSEnshu
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
+            searchItems(itemSearchBox.Text);
 
         }
 
