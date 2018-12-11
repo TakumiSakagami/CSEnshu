@@ -10,7 +10,7 @@ namespace CSEnshu
     {
         /// <summary>
         /// 個数が空文字列か調べる
-        /// 空文字列の場合falseを返す
+        /// 空文字列の場合trueを返す
         /// </summary>
         /// <param name="strNum"></param>
         /// <returns></returns>
@@ -18,10 +18,10 @@ namespace CSEnshu
         {
             if (strNum.Equals(""))
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         /// <summary>
