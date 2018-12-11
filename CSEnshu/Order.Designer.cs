@@ -160,7 +160,7 @@
             this.Controls.Add(this.currentStock);
             this.Controls.Add(this.itemName);
             this.Name = "Order";
-            this.Text = "Form3";
+            this.Text = "注文";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
