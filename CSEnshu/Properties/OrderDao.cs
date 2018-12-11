@@ -1,15 +1,43 @@
 ﻿using System;
 
+//注文画面で注文ボタンを押下すると呼ばれる.
 public class OrderDao
 {
-	public OrderDao()
-	{
-        SqlConnection connection = new SqlConnection();
-        SqlCommand command = new SqlCommand();
-        command.CommandText = $"UPDATE OrderTable"
+    //現在時刻取得.
+    private DateTime date = DateTime.Now;
 
-        public int OrderRecord(int itemId,int CustomerId,int quantity)
-        {
-        }
-	}
+    SqlCommand command = new SqlCommand();
+
+    //orderTableにitemId,CustomersId,quantityを追加していく.
+    public int OrderRecord(int itemId, int customerId, int quantity)
+    {
+
+        command.CommandText = $"INSERT INTO Orders(itemId,customerId,quantity,date)" +
+                              $"VALUES(N'@itemId',N'@customerId',N'@quantity',N'@date')";
+
+        //商品ID(itemId)のパラメータ設定.
+        //OrderRecordメソッドの引数から取得する.
+        command.Parameters.Add("@itemId", SqlDbType.Int32);
+        command.Parameters["@itemId"].value = itemId;
+
+        //顧客ID(customerId)のパラメータ設定.
+        //OrderRecordメソッドの引数から取得する.
+        command.Parameters.Add("@customerId", SqlDbType.Int32);
+        command.Parameters["@customerId"].value = customerId;
+
+        //注文数量(quantity)のパラメータ設定.
+        //注文数のorderBoxから取得する.
+        command.Parameters.Add("@quantity", SqlDbType.int32);
+        command.Parameters["@quantity"].value = orderBox.Text;
+
+        //注文日(date)のパラメータ設定.
+        //OrdersDaoクラスのフィールドから取得.
+        command.Parameters.Add("@date", SqlDbType.Datetime);
+        command.Parameters["@date"].value = date;
+
+        //Connection情報の登録
+        command.Connection = connection;
+        //クエリの実行
+        int num = command.ExecuteNonQuery();
+    }
 }

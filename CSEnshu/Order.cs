@@ -22,9 +22,10 @@ namespace CSEnshu
 
         }
 
+        //顧客検索ボタンを押下.
         private void customerSearchButton_Click(object sender, EventArgs e)
         {
-
+            public List<CustomerDto> SearchCustomer()
         }
 
         private void orderExecuteButton_Click(object sender, EventArgs e)
@@ -38,6 +39,11 @@ namespace CSEnshu
         }
 
         private void customerBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderBox_TextChanged(object sender, EventArgs e)
         {
 
         }

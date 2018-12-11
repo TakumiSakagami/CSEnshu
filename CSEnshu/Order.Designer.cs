@@ -130,6 +130,7 @@
             this.orderBox.Name = "orderBox";
             this.orderBox.Size = new System.Drawing.Size(100, 19);
             this.orderBox.TabIndex = 6;
+            this.orderBox.TextChanged += new System.EventHandler(this.orderBox_TextChanged);
             // 
             // errorMessage
             // 
@@ -142,7 +143,7 @@
             this.errorMessage.Text = "errorMessage";
             this.errorMessage.Visible = false;
             // 
-            // Form3
+            // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +159,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.currentStock);
             this.Controls.Add(this.itemName);
-            this.Name = "Form3";
+            this.Name = "Order";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
