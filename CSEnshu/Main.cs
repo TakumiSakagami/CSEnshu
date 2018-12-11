@@ -32,6 +32,11 @@ namespace CSEnshu
         private void orderButton_Click(object sender, EventArgs e)
         {
             //注文を押したとき
+            //選択されたインデックス
+            int num = searchResult.SelectedIndex;
+
+            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
+               itemsList[num].Price, itemsList[num].Stock);
             Order order = new Order(item);
            
 
@@ -50,6 +55,12 @@ namespace CSEnshu
         private void addStockButton_Click(object sender, EventArgs e)
         {
             //在庫追加を押したとき
+            //選択されたインデックス
+            int num = searchResult.SelectedIndex;
+
+            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
+               itemsList[num].Price, itemsList[num].Stock);
+
             AddStocks addStocks = new AddStocks(item);
             
 
@@ -65,11 +76,7 @@ namespace CSEnshu
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //選択されたインデックス
-            int num = searchResult.SelectedIndex;
-
-            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
-               itemsList[num].Price, itemsList[num].Stock);
+            
 
 
         }
