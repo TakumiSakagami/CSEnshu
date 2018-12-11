@@ -25,7 +25,7 @@ namespace CSEnshu
         //顧客検索ボタンを押下.
         private void customerSearchButton_Click(object sender, EventArgs e)
         {
-            public List<CustomerDto> SearchCustomer()
+
         }
 
         private void orderExecuteButton_Click(object sender, EventArgs e)
@@ -44,6 +44,21 @@ namespace CSEnshu
         }
 
         private void orderBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //顧客検索するメソッド.
+        public void SearchCustomer(string searchCustomerName)
+        {
+            //CustomerDaoのインスタンス生成//金子さんがこれからつくる.
+            CustomerDao customerDao = new CustomerDao();
+            List<Customer> customerList = new List<Customer>();
+
+
+        }
+
+        private bool Validate(int )
         {
 
         }

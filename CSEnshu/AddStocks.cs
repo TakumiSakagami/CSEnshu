@@ -25,7 +25,7 @@ namespace CSEnshu
         private void Form2_Load(object sender, EventArgs e)
         {
             //mainformのインスタンスを mainInstanceに代入
-            this.mainInstance = new Main();
+            //this.mainInstance = new Main();
 
             //mainformで入力されたitem ことちゃん！！！
             this.item = mainInstance.item;
