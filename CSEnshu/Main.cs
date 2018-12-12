@@ -25,15 +25,7 @@ namespace CSEnshu
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if(searchItems(itemSearchBox.Text).Count() == 0)
-            {
-                label2.Text = "検索結果は0件です";
-            }
-            else
-            {
-                label2.Text = $"検索結果は{searchItems(itemSearchBox.Text).Count()}件です";
-            }
-
+            searchItems(itemSearchBox.Text);
         }
 
         private void orderButton_Click(object sender, EventArgs e)
