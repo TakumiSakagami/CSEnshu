@@ -57,7 +57,9 @@ public class OrderDao
     {
         List<OrderDto> list = new List<OrderDto>();
 
-        command.CommandText = "SELECT * FROM Orders;";
+        command.CommandText = "SELECT * FROM Orders,Items,Customers " +
+                                "WHERE Orders.itemId=Items.itemId " +
+                                "AND Orders.customerId=Customers.customerId;";
 
         access.DbConnect();
 
@@ -75,9 +77,13 @@ public class OrderDao
 
             int orderId = Convert.ToInt32(orderIdStr);
             int itemId = Convert.ToInt32(itemIdStr);
+            String itemName = reader["itemName"].ToString();
             int customerId = Convert.ToInt32(customerIdStr);
+            String firstName = reader["firstName"].ToString();
+            String lastName = reader["lastName"].ToString();
             int quantity = Convert.ToInt32(quantityStr);
-            list.Add(new OrderDto(orderId, itemId, customerId, quantity, date));
+            String customerName = firstName + lastName;
+            list.Add(new OrderDto(orderId, itemId, itemName, customerId, customerName, quantity, date));
         }
 
         access.DbClose();

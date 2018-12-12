@@ -17,12 +17,13 @@ namespace CSEnshu
         //log 作成メソッド
         public void WriteLine(List<OrderDto> orderList)
         {
-            using (var writer = new StreamWriter(@"c:\samples\log.csv"))
+
+            using (var writer = new StreamWriter(@"c:\samples\log.csv",false, System.Text.Encoding.GetEncoding("shift_jis")))
 
                 for (int i = 0; i < orderList.Count; i++)
                 {
 
-                    log = orderList[i].ItemId + "," + orderList[i].CustomerId + "," + orderList[i].Quantity + "," + orderList[i].Date;
+                    log = orderList[i].ItemName + "," + orderList[i].CustomerName + "," + orderList[i].Quantity + "," + orderList[i].Date;
 
                     writer.WriteLine(log);
 
