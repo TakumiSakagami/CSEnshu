@@ -39,12 +39,17 @@
             this.orderCancelButton = new System.Windows.Forms.Button();
             this.orderBox = new System.Windows.Forms.TextBox();
             this.errorMessage = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // itemName
             // 
             this.itemName.AutoSize = true;
-            this.itemName.Location = new System.Drawing.Point(155, 55);
+            this.itemName.Location = new System.Drawing.Point(164, 55);
             this.itemName.Name = "itemName";
             this.itemName.Size = new System.Drawing.Size(41, 12);
             this.itemName.TabIndex = 0;
@@ -54,7 +59,7 @@
             // currentStock
             // 
             this.currentStock.AutoSize = true;
-            this.currentStock.Location = new System.Drawing.Point(155, 82);
+            this.currentStock.Location = new System.Drawing.Point(164, 82);
             this.currentStock.Name = "currentStock";
             this.currentStock.Size = new System.Drawing.Size(41, 12);
             this.currentStock.TabIndex = 0;
@@ -80,7 +85,7 @@
             // 
             // customerSearchBox
             // 
-            this.customerSearchBox.Location = new System.Drawing.Point(104, 179);
+            this.customerSearchBox.Location = new System.Drawing.Point(104, 160);
             this.customerSearchBox.Name = "customerSearchBox";
             this.customerSearchBox.Size = new System.Drawing.Size(194, 19);
             this.customerSearchBox.TabIndex = 1;
@@ -97,7 +102,7 @@
             // 
             // customerSearchButton
             // 
-            this.customerSearchButton.Location = new System.Drawing.Point(304, 175);
+            this.customerSearchButton.Location = new System.Drawing.Point(304, 160);
             this.customerSearchButton.Name = "customerSearchButton";
             this.customerSearchButton.Size = new System.Drawing.Size(75, 23);
             this.customerSearchButton.TabIndex = 3;
@@ -128,9 +133,9 @@
             // 
             // orderBox
             // 
-            this.orderBox.Location = new System.Drawing.Point(96, 105);
+            this.orderBox.Location = new System.Drawing.Point(126, 105);
             this.orderBox.Name = "orderBox";
-            this.orderBox.Size = new System.Drawing.Size(100, 19);
+            this.orderBox.Size = new System.Drawing.Size(79, 19);
             this.orderBox.TabIndex = 6;
             this.orderBox.TextChanged += new System.EventHandler(this.orderBox_TextChanged);
             // 
@@ -145,11 +150,60 @@
             this.errorMessage.Text = "errorMessage";
             this.errorMessage.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "商品名";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "現在庫";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "注文数";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(102, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 12);
+            this.label6.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(102, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "顧客名";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.orderBox);
             this.Controls.Add(this.orderCancelButton);
@@ -182,5 +236,10 @@
         private System.Windows.Forms.Button orderCancelButton;
         private System.Windows.Forms.TextBox orderBox;
         private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

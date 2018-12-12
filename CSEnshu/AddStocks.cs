@@ -7,6 +7,7 @@ namespace CSEnshu
     {
         //item
         private ItemsDto item;
+        Logger logger = new Logger();
 
         public AddStocks(ItemsDto item)
         {
@@ -40,41 +41,55 @@ namespace CSEnshu
             if (validater.IsNull(addStockBox.Text))
             {
                 //isnull true nullのとき
+                errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM1;
+                //return;
+
             }
 
             if (validater.IsNum(addStockBox.Text) == -1)
             {
                 //マイナスのときは正の整数で～のEM2表示
+                errorMessage.Visible = true;
+
                 errorMessage.Text = MessageHolder.EM2;
+                //return;
+
                 
             }
             else if(validater.IsNum(addStockBox.Text) == 0)
             {
                 //format error  半角数字で～のエラメ
+                errorMessage.Visible = true;
+
                 errorMessage.Text = MessageHolder.EM1;
+               // return;
 
             }
             else
             {
                 //isnum で数字返却された時は int inputStockに代入
                 inputStock = validater.IsNum(addStockBox.Text);
+
+                //stockdao
+                StocksDao stocksDao = new StocksDao();
+
+                //addstock()実行
+                result = stocksDao.AddStocks(item.ItemId, inputStock);
+
+                //更新できた！メインに戻る
+                if (result == 1)
+                {
+                    logger.OrderWrite(itemName.Text, addStockBox.Text);
+                    //dialogresult OK
+                    this.DialogResult = DialogResult.OK;
+
+                    this.Dispose();
+
+                }
             }
 
             
-            //stockdao
-            StocksDao stocksDao = new StocksDao();
-
-            //addstock()実行
-            result =  stocksDao.AddStocks(item.ItemId, inputStock);
-
-            //更新できた！メインに戻る
-            if(result == 1)
-            {
-                this.Dispose();
-                
-            }
-
         }
 
 
