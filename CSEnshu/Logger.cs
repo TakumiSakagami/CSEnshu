@@ -10,6 +10,8 @@ namespace CSEnshu
     class Logger
     {
         private string log;
+        OrderDao dao = new OrderDao();
+       
 
         //log 作成メソッド
         public void WriteLine(List<OrderDto> orderList)
