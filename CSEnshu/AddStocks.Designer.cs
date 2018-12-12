@@ -87,7 +87,6 @@
             // 
             // addExecuteButton
             // 
-            this.addExecuteButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.addExecuteButton.Location = new System.Drawing.Point(57, 143);
             this.addExecuteButton.Name = "addExecuteButton";
             this.addExecuteButton.Size = new System.Drawing.Size(75, 23);
