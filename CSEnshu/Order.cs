@@ -31,8 +31,8 @@ namespace CSEnshu
         {
             //初期化
             InitializeComponent();
-
             this.item = item;
+            
         }
 
         private void Form3_Load(object sender, EventArgs e)
