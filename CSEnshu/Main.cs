@@ -21,11 +21,22 @@ namespace CSEnshu
         {
             InitializeComponent();
             Main.MainInstance = this;
+           
+
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             searchItems(itemSearchBox.Text);
+
+            //検索結果が0件の時
+            if (searchResult.Items.Count == 0)
+            {
+                resultText.Visible = true;
+                resultText.Text = MessageHolder.PM3;
+            }
+
 
         }
 
@@ -35,18 +46,28 @@ namespace CSEnshu
             //選択されたインデックス
 
             int num = searchResult.SelectedIndex;
-           
 
+
+
+            //選択されている場合
             if (num != -1)
             {
+                if (itemsList[num].Stock == 0)
+                {
+                    resultText.Visible = true;
+                    resultText.Text = MessageHolder.EM3;
+                    return;
+                }
                 item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
                    itemsList[num].Price, itemsList[num].Stock);
+                //フォーム呼び出す
                 Order order = new Order(item);
 
 
                 //OKで返ってきたら
                 if (order.ShowDialog(this) == DialogResult.OK)
                 {
+                    
                     searchResult.Items.Clear();
                     resultText.Visible = true;
                     resultText.Text = MessageHolder.PM1;
@@ -57,7 +78,13 @@ namespace CSEnshu
                         //リストに追加
                         searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
                     }
+
                 }
+            }
+            else//選択されていない場合
+            {
+                resultText.Visible = true;
+                resultText.Text = MessageHolder.PM4;
             }
 
         }
@@ -67,13 +94,13 @@ namespace CSEnshu
             //在庫追加を押したとき
             //選択されたインデックス
             int num = searchResult.SelectedIndex;
-            
+
 
             if (num != -1)
             {
                 item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
                itemsList[num].Price, itemsList[num].Stock);
-
+                //フォーム呼び出す
                 AddStocks addStocks = new AddStocks(item);
 
 
@@ -90,17 +117,26 @@ namespace CSEnshu
                         //リストに追加
                         searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
                     }
+                }
+                else
+                {
+                    resultText.Visible = true;
+                    resultText.Text = MessageHolder.PM4;
 
                 }
             }
 
-
+            
         }
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //選択されたらメッセージを消す
+            if (searchResult.Items.Count != 0)
+            {
+                resultText.Visible = false;
 
-
+            }
 
         }
 
@@ -119,6 +155,7 @@ namespace CSEnshu
             searchResult.Items.Clear();
             ItemsDao itemsDao = new ItemsDao();
             itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
+
 
             //検索する
             for (int i = 0; i < itemsList.Count; i++)

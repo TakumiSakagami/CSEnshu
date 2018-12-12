@@ -17,5 +17,8 @@ namespace CSEnshu
 
         internal const String PM1 = "注文が完了しました";
         internal const String PM2 = "在庫の追加が完了しました";
+        internal const String PM3 = "検索結果は0件です";
+        internal const String PM4 = "アイテムを選択してください";
+
     }
 }
