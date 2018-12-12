@@ -37,6 +37,9 @@ namespace CSEnshu
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            //注文画面に遷移した時に注文数量入力欄にカーソルを合わせる.
+            this.ActiveControl = this.orderBox;
+
             currentStock.Text = item.Stock.ToString();
             itemName.Text = item.ItemName;
 
