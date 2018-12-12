@@ -107,6 +107,7 @@
             // 
             // orderExecuteButton
             // 
+            this.orderExecuteButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.orderExecuteButton.Location = new System.Drawing.Point(59, 359);
             this.orderExecuteButton.Name = "orderExecuteButton";
             this.orderExecuteButton.Size = new System.Drawing.Size(75, 23);
@@ -117,6 +118,7 @@
             // 
             // orderCancelButton
             // 
+            this.orderCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.orderCancelButton.Location = new System.Drawing.Point(277, 359);
             this.orderCancelButton.Name = "orderCancelButton";
             this.orderCancelButton.Size = new System.Drawing.Size(75, 23);
