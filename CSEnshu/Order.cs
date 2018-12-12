@@ -20,6 +20,8 @@ namespace CSEnshu
         int orderQuantity;
         CustomerDao customerDao = new CustomerDao();
         Logger logger = new Logger();
+        //OrderDao
+        OrderDao orderDao = new OrderDao();
 
         private ItemsDto item;
         private List<OrderDto> orderList = new List<OrderDto>();
@@ -27,6 +29,7 @@ namespace CSEnshu
 
         public Order(ItemsDto item)
         {
+            //初期化
             InitializeComponent();
 
             this.item = item;
@@ -73,16 +76,23 @@ namespace CSEnshu
                 errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM2;
             }
+            //入力チェックが完了したら
+            //注文数量の変数orderQuantityに入力値を代入
             else
             {
                 orderQuantity = validater.IsNum(orderBox.Text);
             }
 
-            //入力チェックが完了したら
-            //①labelにPM01を表示させる
-            //②注文数量の変数orderQuantityに入力値を代入
-           // errorMessage.Text = MessageHolder.PM1;
-
+            //StocksDaoのDecrementメソッドを実行
+            //成功したら1がかえるので、Main画面(商品選択)に遷移
+            StocksDao stocksDao = new StocksDao();
+            int result = stocksDao.DecrementStocks(item.ItemId, orderQuantity);
+            //更新できたらメインに戻る
+            if (result == 1)
+            {
+                this.Close();
+            }
+            //ログを残す
             logger.WriteLine(orderList);
         }
 

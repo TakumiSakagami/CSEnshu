@@ -5,19 +5,20 @@ using System.Data;
 using System.Data.SqlClient;
 
 //注文画面で注文ボタンを押下すると呼ばれる.
-public class OrderDao1
+public class OrderDao
 {
     //現在時刻取得.
     private DateTime date = DateTime.Now;
-    //Order order = null;
+
     SqlCommand command = new SqlCommand();
     SqlConnection connection = new SqlConnection();
-    SqlDataReader reader;
     DBAccess access = new DBAccess();
+    SqlDataReader reader;
 
-    //orderTableにitemId,CustomersId,quantityを追加していく.
+    //OrdersテーブルにitemId,CustomerId,quantityを追加していくメソッド.
     public int OrderRecord(int itemId, int customerId, int quantity)
     {
+        //データベースに接続する.
         access.DbConnect();
 
         command.CommandText = $"INSERT INTO Orders(itemId,customerId,quantity,date)" +
