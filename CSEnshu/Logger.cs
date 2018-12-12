@@ -24,6 +24,7 @@ namespace CSEnshu
                 writer.WriteLine(log);
 
             }
+            writer.Close();
 
         }
 
