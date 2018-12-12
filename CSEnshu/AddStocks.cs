@@ -41,6 +41,7 @@ namespace CSEnshu
             if (validater.IsNull(addStockBox.Text))
             {
                 //isnull true nullのとき
+                errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM1;
                 //return;
 
@@ -49,6 +50,8 @@ namespace CSEnshu
             if (validater.IsNum(addStockBox.Text) == -1)
             {
                 //マイナスのときは正の整数で～のEM2表示
+                errorMessage.Visible = true;
+
                 errorMessage.Text = MessageHolder.EM2;
                 //return;
 
@@ -57,6 +60,8 @@ namespace CSEnshu
             else if(validater.IsNum(addStockBox.Text) == 0)
             {
                 //format error  半角数字で～のエラメ
+                errorMessage.Visible = true;
+
                 errorMessage.Text = MessageHolder.EM1;
                // return;
 
@@ -76,6 +81,9 @@ namespace CSEnshu
                 if (result == 1)
                 {
                     logger.OrderWrite(itemName.Text, addStockBox.Text);
+                    //dialogresult OK
+                    this.DialogResult = DialogResult.OK;
+
                     this.Dispose();
 
                 }
