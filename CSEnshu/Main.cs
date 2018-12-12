@@ -35,6 +35,7 @@ namespace CSEnshu
             //選択されたインデックス
 
             int num = searchResult.SelectedIndex;
+           
 
             if (num != -1)
             {
@@ -46,12 +47,18 @@ namespace CSEnshu
                 //OKで返ってきたら
                 if (order.ShowDialog(this) == DialogResult.OK)
                 {
+                    searchResult.Items.Clear();
                     resultText.Visible = true;
                     resultText.Text = MessageHolder.PM1;
+                    ItemsDao items = new ItemsDao();
+                    itemsList = items.query();
+                    for (int i = 0; i < itemsList.Count; i++)
+                    {
+                        //リストに追加
+                        searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
+                    }
                 }
             }
-
-
 
         }
 
@@ -60,6 +67,7 @@ namespace CSEnshu
             //在庫追加を押したとき
             //選択されたインデックス
             int num = searchResult.SelectedIndex;
+            
 
             if (num != -1)
             {
@@ -72,8 +80,17 @@ namespace CSEnshu
                 //OKで返ってきたら
                 if (addStocks.ShowDialog(this) == DialogResult.OK)
                 {
+                    searchResult.Items.Clear();
                     resultText.Visible = true;
                     resultText.Text = MessageHolder.PM2;
+                    ItemsDao items = new ItemsDao();
+                    itemsList = items.query();
+                    for (int i = 0; i < itemsList.Count; i++)
+                    {
+                        //リストに追加
+                        searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
+                    }
+
                 }
             }
 
@@ -99,10 +116,10 @@ namespace CSEnshu
 
         private void searchItems(string searhItemName)
         {
-                searchResult.Items.Clear();
-                ItemsDao itemsDao = new ItemsDao();
-                itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
-            
+            searchResult.Items.Clear();
+            ItemsDao itemsDao = new ItemsDao();
+            itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
+
             //検索する
             for (int i = 0; i < itemsList.Count; i++)
             {
@@ -110,7 +127,7 @@ namespace CSEnshu
                 searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
             }
 
-            
+
 
         }
 

@@ -63,5 +63,47 @@ namespace CSEnshu
             return list;
 
         }
+
+        public List<ItemsDto> query()
+        {
+            access.DbConnect();
+
+
+            SqlCommand command = new SqlCommand();
+
+
+            command.CommandText = $"SELECT * FROM Items " +
+                                  $"INNER JOIN Stocks ON Items.itemId = Stocks.itemId ";
+                                
+
+            command.Connection = access.Connection;
+
+
+            //クエリの実行
+            SqlDataReader reader;
+
+            reader = command.ExecuteReader();
+            List<ItemsDto> list = new List<ItemsDto>();
+
+            //値の取得
+            while (reader.Read())
+            {
+                string itemIdStr = reader["itemId"].ToString();
+                string itemName = reader["itemName"].ToString();
+                string priceStr = reader["price"].ToString();
+                string stockStr = reader["stock"].ToString();
+
+                int itemId = Convert.ToInt32(itemIdStr);
+                int price = Convert.ToInt32(priceStr);
+                int stock = Convert.ToInt32(stockStr);
+                ItemsDto itemsDto = new ItemsDto(itemId, itemName, price, stock);
+                list.Add(itemsDto);
+            }
+
+            access.DbClose();
+
+            return list;
+
+        }
     }
 }
