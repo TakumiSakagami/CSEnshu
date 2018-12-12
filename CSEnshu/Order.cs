@@ -50,6 +50,8 @@ namespace CSEnshu
         //顧客検索ボタンを押下.
         private void customerSearchButton_Click(object sender, EventArgs e)
         {
+            //顧客名一覧(customerBox)の初期化.
+            customerBox.Items.Clear();
 
             customerList = customerDao.SearchCustomerList(customerSearchBox.Text);
             //customerDaoのSearchCustomerListで作成したリストをすべて表示させる.
