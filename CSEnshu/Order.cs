@@ -99,7 +99,7 @@ namespace CSEnshu
         //キャンセルボタンを押したらメイン（商品選択画面）に遷移する.
         private void orderCancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void customerBox_SelectedIndexChanged(object sender, EventArgs e)
