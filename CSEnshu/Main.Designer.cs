@@ -35,7 +35,7 @@
             this.orderButton = new System.Windows.Forms.Button();
             this.addStockButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.result = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // resultText
@@ -106,21 +106,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "商品名";
             // 
-            // label2
+            // result
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(124, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
+            this.result.AutoSize = true;
+            this.result.Location = new System.Drawing.Point(124, 85);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(0, 12);
+            this.result.TabIndex = 7;
+            this.result.Visible = false;
+            this.result.Click += new System.EventHandler(this.result_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addStockButton);
             this.Controls.Add(this.orderButton);
@@ -145,7 +146,7 @@
         internal System.Windows.Forms.Button orderButton;
         internal System.Windows.Forms.Button addStockButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label result;
     }
 }
 
