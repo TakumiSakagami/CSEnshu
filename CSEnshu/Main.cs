@@ -36,6 +36,11 @@ namespace CSEnshu
                 result.Visible = true;
                 result.Text = MessageHolder.PM3;
             }
+            else
+            {
+                result.Visible = true;
+                result.Text = $"検索結果は{searchResult.Items.Count}件です";
+            }
 
 
         }
