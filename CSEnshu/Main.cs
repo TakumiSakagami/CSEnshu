@@ -16,6 +16,7 @@ namespace CSEnshu
         public static Main MainInstance { get; set; }
         List<ItemsDto> itemsList = new List<ItemsDto>();
         ItemsDto item;
+        
 
         public Main()
         {
@@ -101,7 +102,7 @@ namespace CSEnshu
             for (int i = 0; i < itemsList.Count; i++)
             {
                 //リストに追加
-                searchResult.Items.Add(itemsList[i].ItemName + ":" + itemsList[i].Price + ":" + itemsList[i].Stock);
+                searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
             }
 
         }
