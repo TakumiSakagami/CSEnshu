@@ -32,7 +32,7 @@ namespace CSEnshu
 
             command.CommandText = $"SELECT * FROM Customers " +
                                   $"WHERE firstName LIKE @customerName " +
-                                  $"AND lastName LIKE @customerName";
+                                  $"OR lastName LIKE @customerName";
 
 
 
