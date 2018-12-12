@@ -41,7 +41,7 @@
             // resultText
             // 
             this.resultText.AutoSize = true;
-            this.resultText.Location = new System.Drawing.Point(96, 9);
+            this.resultText.Location = new System.Drawing.Point(124, 9);
             this.resultText.Name = "resultText";
             this.resultText.Size = new System.Drawing.Size(35, 12);
             this.resultText.TabIndex = 0;
@@ -55,7 +55,7 @@
             this.searchResult.ItemHeight = 12;
             this.searchResult.Location = new System.Drawing.Point(124, 100);
             this.searchResult.Name = "searchResult";
-            this.searchResult.Size = new System.Drawing.Size(239, 172);
+            this.searchResult.Size = new System.Drawing.Size(397, 172);
             this.searchResult.TabIndex = 1;
             this.searchResult.SelectedIndexChanged += new System.EventHandler(this.searchResult_SelectedIndexChanged);
             // 
@@ -69,7 +69,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(369, 52);
+            this.searchButton.Location = new System.Drawing.Point(385, 32);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // addStockButton
             // 
-            this.addStockButton.Location = new System.Drawing.Point(344, 278);
+            this.addStockButton.Location = new System.Drawing.Point(406, 254);
             this.addStockButton.Name = "addStockButton";
             this.addStockButton.Size = new System.Drawing.Size(75, 23);
             this.addStockButton.TabIndex = 5;

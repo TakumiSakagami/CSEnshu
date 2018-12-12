@@ -42,24 +42,31 @@ namespace CSEnshu
             {
                 //isnull true nullのとき
                 errorMessage.Text = MessageHolder.EM1;
+                return;
+
             }
 
             if (validater.IsNum(addStockBox.Text) == -1)
             {
                 //マイナスのときは正の整数で～のEM2表示
                 errorMessage.Text = MessageHolder.EM2;
+                return;
+
                 
             }
             else if(validater.IsNum(addStockBox.Text) == 0)
             {
                 //format error  半角数字で～のエラメ
                 errorMessage.Text = MessageHolder.EM1;
+                return;
 
             }
             else
             {
                 //isnum で数字返却された時は int inputStockに代入
                 inputStock = validater.IsNum(addStockBox.Text);
+
+
             }
 
             
