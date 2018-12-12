@@ -11,6 +11,7 @@ namespace CSEnshu
     {
         private string log;
         OrderDao dao = new OrderDao();
+        DateTime date;
        
 
         //log 作成メソッド
@@ -27,6 +28,20 @@ namespace CSEnshu
 
                 }
 
+        }
+
+        public void OrderWrite(String itemName,String addStock)
+        {
+
+
+            date = DateTime.Now;
+            using (var writer = new StreamWriter(@"c:\samples\addlog.csv", true, System.Text.Encoding.GetEncoding("shift_jis")))
+            {
+
+                log = $"{itemName},{addStock},{date}";
+
+                writer.WriteLine(log);
+            }
         }
 
     }

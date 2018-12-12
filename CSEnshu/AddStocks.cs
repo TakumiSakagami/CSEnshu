@@ -7,6 +7,7 @@ namespace CSEnshu
     {
         //item
         private ItemsDto item;
+        Logger logger = new Logger();
 
         public AddStocks(ItemsDto item)
         {
@@ -71,6 +72,7 @@ namespace CSEnshu
             //更新できた！メインに戻る
             if(result == 1)
             {
+                logger.OrderWrite(itemName.Text, addStockBox.Text);
                 this.Dispose();
                 
             }
