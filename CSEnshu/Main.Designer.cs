@@ -69,7 +69,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(385, 32);
+            this.searchButton.Location = new System.Drawing.Point(381, 50);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // addStockButton
             // 
-            this.addStockButton.Location = new System.Drawing.Point(406, 254);
+            this.addStockButton.Location = new System.Drawing.Point(478, 278);
             this.addStockButton.Name = "addStockButton";
             this.addStockButton.Size = new System.Drawing.Size(75, 23);
             this.addStockButton.TabIndex = 5;
