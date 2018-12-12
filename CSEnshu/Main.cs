@@ -16,7 +16,6 @@ namespace CSEnshu
         public static Main MainInstance { get; set; }
         List<ItemsDto> itemsList = new List<ItemsDto>();
         ItemsDto item;
-        
 
         public Main()
         {
@@ -34,18 +33,22 @@ namespace CSEnshu
         {
             //注文を押したとき
             //選択されたインデックス
+
             int num = searchResult.SelectedIndex;
 
-            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
-               itemsList[num].Price, itemsList[num].Stock);
-            Order order = new Order(item);
-           
-
-            //OKで返ってきたら
-            if (order.ShowDialog(this) == DialogResult.OK)
+            if (num != -1)
             {
-                resultText.Visible = true;
-                resultText.Text = MessageHolder.PM1;
+                item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
+                   itemsList[num].Price, itemsList[num].Stock);
+                Order order = new Order(item);
+
+
+                //OKで返ってきたら
+                if (order.ShowDialog(this) == DialogResult.OK)
+                {
+                    resultText.Visible = true;
+                    resultText.Text = MessageHolder.PM1;
+                }
             }
 
 
@@ -58,17 +61,20 @@ namespace CSEnshu
             //選択されたインデックス
             int num = searchResult.SelectedIndex;
 
-            item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
+            if (num != -1)
+            {
+                item = new ItemsDto(itemsList[num].ItemId, itemsList[num].ItemName,
                itemsList[num].Price, itemsList[num].Stock);
 
-            AddStocks addStocks = new AddStocks(item);
-            
+                AddStocks addStocks = new AddStocks(item);
 
-            //OKで返ってきたら
-            if (addStocks.ShowDialog(this) == DialogResult.OK)
-            {
-                resultText.Visible = true;
-                resultText.Text = MessageHolder.PM2;
+
+                //OKで返ってきたら
+                if (addStocks.ShowDialog(this) == DialogResult.OK)
+                {
+                    resultText.Visible = true;
+                    resultText.Text = MessageHolder.PM2;
+                }
             }
 
 
@@ -76,7 +82,7 @@ namespace CSEnshu
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
 
         }
@@ -93,16 +99,18 @@ namespace CSEnshu
 
         private void searchItems(string searhItemName)
         {
-
-            ItemsDao itemsDao = new ItemsDao();
-            itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
-
+                searchResult.Items.Clear();
+                ItemsDao itemsDao = new ItemsDao();
+                itemsList = itemsDao.SearchItemsList(itemSearchBox.Text);
+            
             //検索する
             for (int i = 0; i < itemsList.Count; i++)
             {
                 //リストに追加
                 searchResult.Items.Add("商品名:" + itemsList[i].ItemName + "　価格:" + itemsList[i].Price + "　在庫:" + itemsList[i].Stock);
             }
+
+            
 
         }
 
