@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // itemName
@@ -83,7 +84,7 @@
             // 
             // customerSearchBox
             // 
-            this.customerSearchBox.Location = new System.Drawing.Point(104, 179);
+            this.customerSearchBox.Location = new System.Drawing.Point(104, 160);
             this.customerSearchBox.Name = "customerSearchBox";
             this.customerSearchBox.Size = new System.Drawing.Size(194, 19);
             this.customerSearchBox.TabIndex = 1;
@@ -100,7 +101,7 @@
             // 
             // customerSearchButton
             // 
-            this.customerSearchButton.Location = new System.Drawing.Point(304, 175);
+            this.customerSearchButton.Location = new System.Drawing.Point(304, 160);
             this.customerSearchButton.Name = "customerSearchButton";
             this.customerSearchButton.Size = new System.Drawing.Size(75, 23);
             this.customerSearchButton.TabIndex = 3;
@@ -175,11 +176,20 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "追加在庫";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(102, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 12);
+            this.label6.TabIndex = 11;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -218,5 +228,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

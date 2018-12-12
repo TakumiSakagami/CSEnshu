@@ -34,7 +34,7 @@ namespace CSEnshu
             //初期化
             InitializeComponent();
             this.item = item;
-            
+
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -54,11 +54,21 @@ namespace CSEnshu
             customerBox.Items.Clear();
 
             customerList = customerDao.SearchCustomerList(customerSearchBox.Text);
-            //customerDaoのSearchCustomerListで作成したリストをすべて表示させる.
-            foreach (var a in customerList)
+
+            //検索結果が0件の時、label6に”検索結果は0件です”と表示する.
+            if (customerList.Count() == 0)
             {
-                //customerBoxに表示させる.
-                customerBox.Items.Add($"{a.CustomerId} 名前:{a.FirstName} {a.LastName}");
+                label6.Text = "検索結果は0件です";
+            }
+            else
+            {
+                label6.Text = $"検索結果は{customerList.Count()}件です";
+                //customerDaoのSearchCustomerListで作成したリストをすべて表示させる.
+                foreach (var a in customerList)
+                {
+                    //customerBoxに表示させる.
+                    customerBox.Items.Add($"{a.CustomerId} 名前:{a.FirstName} {a.LastName}");
+                }
             }
 
         }
@@ -80,7 +90,7 @@ namespace CSEnshu
                 errorMessage.Text = MessageHolder.EM1;
             }
             //マイナスの値が入力される.
-            else if(validater.IsNum(orderBox.Text) == -1)
+            else if (validater.IsNum(orderBox.Text) == -1)
             {
                 errorMessage.Visible = true;
                 errorMessage.Text = MessageHolder.EM2;
@@ -118,7 +128,7 @@ namespace CSEnshu
                         this.Dispose();
                     }
                 }
-                
+
             }
 
 
