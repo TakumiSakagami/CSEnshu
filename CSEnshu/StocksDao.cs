@@ -12,6 +12,8 @@ namespace CSEnshu
 
     {
 
+        int num=0;
+
         //DBAccess 
         DBAccess dBAccess = new DBAccess();
 
@@ -26,8 +28,8 @@ namespace CSEnshu
             command.Parameters["@itemId"].Value = itemId;
 
             command.CommandText = $"UPDATE Stocks" +
-                $" SET stocks = stocks + N'@inputStocks'" +
-                $" WHERE itemId = N'@itemId'";
+                $" SET stock = stock + @inputStocks" +
+                $" WHERE itemId = @itemId";
 
             
             //connect
@@ -35,10 +37,10 @@ namespace CSEnshu
 
             command.Connection = dBAccess.Connection;
 
+                //クエリ実行
+            num = command.ExecuteNonQuery();
 
 
-            //クエリ実行
-            int num = command.ExecuteNonQuery();
 
             //close
             dBAccess.DbClose();
