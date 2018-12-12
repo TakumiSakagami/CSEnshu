@@ -48,7 +48,6 @@ namespace CSEnshu
                 resultText.Text = MessageHolder.PM1;
             }
 
-            order.ShowDialog();
 
 
         }
@@ -72,7 +71,7 @@ namespace CSEnshu
                 resultText.Text = MessageHolder.PM2;
             }
 
-            addStocks.ShowDialog();
+
         }
 
         private void searchResult_SelectedIndexChanged(object sender, EventArgs e)
