@@ -60,9 +60,9 @@ namespace CSEnshu
             command.Parameters["@itemId"].Value = itemId;
             
 
-            command.CommandText = $"UPDATE StocksTable" +
-                $" SET stocks = stocks - N'@quantity'" +
-                $" WHERE itemId = N'@itemId'";
+            command.CommandText = $"UPDATE Stocks" +
+                $" SET stock = stock - @quantity" +
+                $" WHERE itemId = @itemId";
             
 
             //connection
