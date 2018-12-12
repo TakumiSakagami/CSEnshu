@@ -42,7 +42,7 @@ namespace CSEnshu
             {
                 //isnull true nullのとき
                 errorMessage.Text = MessageHolder.EM1;
-                return;
+                //return;
 
             }
 
@@ -50,7 +50,7 @@ namespace CSEnshu
             {
                 //マイナスのときは正の整数で～のEM2表示
                 errorMessage.Text = MessageHolder.EM2;
-                return;
+                //return;
 
                 
             }
@@ -58,7 +58,7 @@ namespace CSEnshu
             {
                 //format error  半角数字で～のエラメ
                 errorMessage.Text = MessageHolder.EM1;
-                return;
+               // return;
 
             }
             else
@@ -66,24 +66,22 @@ namespace CSEnshu
                 //isnum で数字返却された時は int inputStockに代入
                 inputStock = validater.IsNum(addStockBox.Text);
 
+                //stockdao
+                StocksDao stocksDao = new StocksDao();
 
+                //addstock()実行
+                result = stocksDao.AddStocks(item.ItemId, inputStock);
+
+                //更新できた！メインに戻る
+                if (result == 1)
+                {
+                    logger.OrderWrite(itemName.Text, addStockBox.Text);
+                    this.Dispose();
+
+                }
             }
 
             
-            //stockdao
-            StocksDao stocksDao = new StocksDao();
-
-            //addstock()実行
-            result =  stocksDao.AddStocks(item.ItemId, inputStock);
-
-            //更新できた！メインに戻る
-            if(result == 1)
-            {
-                logger.OrderWrite(itemName.Text, addStockBox.Text);
-                this.Dispose();
-                
-            }
-
         }
 
 
