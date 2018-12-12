@@ -71,7 +71,7 @@ namespace CSEnshu
             //更新できた！メインに戻る
             if(result == 1)
             {
-                this.Close();
+                this.Dispose();
                 
             }
 
@@ -81,7 +81,7 @@ namespace CSEnshu
         private void addCancelButton_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            this.Dispose();
         }
 
         private void addStockBox_TextChanged(object sender, EventArgs e)
