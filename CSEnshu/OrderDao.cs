@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 //注文画面で注文ボタンを押下すると呼ばれる.
-public class OrderDao1
+public class OrderDao
 {
     //現在時刻取得.
     private DateTime date = DateTime.Now;
