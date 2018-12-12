@@ -107,7 +107,6 @@
             // 
             // orderExecuteButton
             // 
-            this.orderExecuteButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.orderExecuteButton.Location = new System.Drawing.Point(59, 359);
             this.orderExecuteButton.Name = "orderExecuteButton";
             this.orderExecuteButton.Size = new System.Drawing.Size(75, 23);

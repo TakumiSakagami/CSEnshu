@@ -23,6 +23,8 @@ namespace CSEnshu
         //OrderDao
         OrderDao orderDao = new OrderDao();
 
+        List<CustomerDto> customerList = new List<CustomerDto>();
+
         private ItemsDto item;
         private List<OrderDto> orderList = new List<OrderDto>();
 
@@ -48,8 +50,10 @@ namespace CSEnshu
         //顧客検索ボタンを押下.
         private void customerSearchButton_Click(object sender, EventArgs e)
         {
+
+            customerList = customerDao.SearchCustomerList(customerSearchBox.Text);
             //customerDaoのSearchCustomerListで作成したリストをすべて表示させる.
-            foreach (var a in customerDao.SearchCustomerList(customerSearchBox.Text))
+            foreach (var a in customerList)
             {
                 //customerBoxに表示させる.
                 customerBox.Items.Add($"{a.CustomerId} 名前:{a.FirstName} {a.LastName}");
@@ -83,20 +87,40 @@ namespace CSEnshu
             //注文数量の変数orderQuantityに入力値を代入
             else
             {
-                orderQuantity = validater.IsNum(orderBox.Text);
+
+                int currentStocks = Convert.ToInt32(currentStock.Text);
+                int quantity = Convert.ToInt32(orderBox.Text);
+
+                if (!validater.stockCheck(currentStocks, quantity))
+                {
+                    errorMessage.Visible = true;
+                    errorMessage.Text = MessageHolder.EM3;
+
+
+                }
+                else
+                {
+                    orderQuantity = validater.IsNum(orderBox.Text);
+                    //StocksDaoのDecrementメソッドを実行
+                    //成功したら1がかえるので、Main画面(商品選択)に遷移
+                    StocksDao stocksDao = new StocksDao();
+                    int result = stocksDao.DecrementStocks(item.ItemId, orderQuantity);
+                    //更新できたらメインに戻る
+                    if (result == 1)
+                    {
+                        //ログを書き込む
+                        orderDao.OrderRecord(item.ItemId, customerList[customerBox.SelectedIndex].CustomerId, quantity);
+                        //ログを残す
+                        logger.WriteLine(orderDao.getOrder());
+                        this.DialogResult = DialogResult.OK;
+                        this.Dispose();
+                    }
+                }
+                
             }
 
-            //StocksDaoのDecrementメソッドを実行
-            //成功したら1がかえるので、Main画面(商品選択)に遷移
-            StocksDao stocksDao = new StocksDao();
-            int result = stocksDao.DecrementStocks(item.ItemId, orderQuantity);
-            //更新できたらメインに戻る
-            if (result == 1)
-            {
-                this.Close();
-            }
-            //ログを残す
-            logger.WriteLine(orderList);
+
+
         }
 
         //キャンセルボタンを押したらメイン（商品選択画面）に遷移する.
