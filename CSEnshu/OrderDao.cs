@@ -22,7 +22,7 @@ public class OrderDao
         access.DbConnect();
 
         command.CommandText = $"INSERT INTO Orders(itemId,customerId,quantity,date)" +
-                              $"VALUES(N'@itemId',N'@customerId',N'@quantity',N'@date')";
+                              $"VALUES(@itemId,@customerId,@quantity,@date)";
 
         //商品ID(itemId)のパラメータ設定.
         //OrderRecordメソッドの引数から取得する.
@@ -69,7 +69,7 @@ public class OrderDao
 
             String orderIdStr = reader["orderId"].ToString();
             String itemIdStr = reader["itemId"].ToString();
-            String customerIdStr = reader["cutomerId"].ToString();
+            String customerIdStr = reader["customerId"].ToString();
             String quantityStr = reader["quantity"].ToString();
             DateTime date = (DateTime)reader["date"];
 
