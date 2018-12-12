@@ -44,7 +44,7 @@
             // itemName
             // 
             this.itemName.AutoSize = true;
-            this.itemName.Location = new System.Drawing.Point(183, 55);
+            this.itemName.Location = new System.Drawing.Point(172, 55);
             this.itemName.Name = "itemName";
             this.itemName.Size = new System.Drawing.Size(41, 12);
             this.itemName.TabIndex = 0;
@@ -53,7 +53,7 @@
             // currentStock
             // 
             this.currentStock.AutoSize = true;
-            this.currentStock.Location = new System.Drawing.Point(183, 82);
+            this.currentStock.Location = new System.Drawing.Point(172, 82);
             this.currentStock.Name = "currentStock";
             this.currentStock.Size = new System.Drawing.Size(41, 12);
             this.currentStock.TabIndex = 0;
@@ -62,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(242, 82);
+            this.label3.Location = new System.Drawing.Point(254, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 0;
@@ -71,7 +71,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(242, 111);
+            this.label4.Location = new System.Drawing.Point(254, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 0;
@@ -79,7 +79,7 @@
             // 
             // addStockBox
             // 
-            this.addStockBox.Location = new System.Drawing.Point(154, 104);
+            this.addStockBox.Location = new System.Drawing.Point(143, 104);
             this.addStockBox.Name = "addStockBox";
             this.addStockBox.Size = new System.Drawing.Size(70, 19);
             this.addStockBox.TabIndex = 1;
