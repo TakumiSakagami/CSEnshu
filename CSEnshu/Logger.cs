@@ -17,6 +17,7 @@ namespace CSEnshu
         //log 作成メソッド
         public void WriteLine(List<OrderDto> orderList)
         {
+
             using (var writer = new StreamWriter(@"c:\samples\log.csv",false, System.Text.Encoding.GetEncoding("shift_jis")))
 
                 for (int i = 0; i < orderList.Count; i++)

@@ -33,8 +33,8 @@ namespace CSEnshu
             //検索結果が0件の時
             if (searchResult.Items.Count == 0)
             {
-                resultText.Visible = true;
-                resultText.Text = MessageHolder.PM3;
+                result.Visible = true;
+                result.Text = MessageHolder.PM3;
             }
 
 
@@ -169,6 +169,11 @@ namespace CSEnshu
         }
 
         private void resultText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void result_Click(object sender, EventArgs e)
         {
 
         }

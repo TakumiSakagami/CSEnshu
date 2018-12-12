@@ -49,7 +49,7 @@
             // itemName
             // 
             this.itemName.AutoSize = true;
-            this.itemName.Location = new System.Drawing.Point(164, 55);
+            this.itemName.Location = new System.Drawing.Point(150, 55);
             this.itemName.Name = "itemName";
             this.itemName.Size = new System.Drawing.Size(41, 12);
             this.itemName.TabIndex = 0;
@@ -59,7 +59,7 @@
             // currentStock
             // 
             this.currentStock.AutoSize = true;
-            this.currentStock.Location = new System.Drawing.Point(164, 82);
+            this.currentStock.Location = new System.Drawing.Point(150, 82);
             this.currentStock.Name = "currentStock";
             this.currentStock.Size = new System.Drawing.Size(41, 12);
             this.currentStock.TabIndex = 0;
@@ -68,7 +68,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(223, 82);
+            this.label3.Location = new System.Drawing.Point(237, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 0;
@@ -77,7 +77,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(223, 112);
+            this.label4.Location = new System.Drawing.Point(237, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 0;
@@ -133,9 +133,9 @@
             // 
             // orderBox
             // 
-            this.orderBox.Location = new System.Drawing.Point(126, 105);
+            this.orderBox.Location = new System.Drawing.Point(113, 105);
             this.orderBox.Name = "orderBox";
-            this.orderBox.Size = new System.Drawing.Size(79, 19);
+            this.orderBox.Size = new System.Drawing.Size(78, 19);
             this.orderBox.TabIndex = 6;
             this.orderBox.TextChanged += new System.EventHandler(this.orderBox_TextChanged);
             // 
