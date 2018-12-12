@@ -14,16 +14,16 @@ namespace CSEnshu
         //log 作成メソッド
         public void WriteLine(List<OrderDto> orderList)
         {
-            var writer = new StreamWriter(@"c:\samples\log.csv");
-            
-            for(int i = 0;i< orderList.Count;i++)
-            {
+            using (var writer = new StreamWriter(@"c:\samples\log.csv"))
 
-                log = orderList[i].ItemId + "," + orderList[i].CustomerId + "," + orderList[i].Quantity + "," + orderList[i].Date;
+                for (int i = 0; i < orderList.Count; i++)
+                {
 
-                writer.WriteLine(log);
+                    log = orderList[i].ItemId + "," + orderList[i].CustomerId + "," + orderList[i].Quantity + "," + orderList[i].Date;
 
-            }
+                    writer.WriteLine(log);
+
+                }
 
         }
 
